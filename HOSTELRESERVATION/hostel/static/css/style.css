@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+
+:root {
+    --brand: #00ace6;
+    --dark: #092032;
+    --body: #516171;
+    --border: rgba(0,0,0,0.08);
+    --red: red;
+    --shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+    --dashboard: #3399ff;
+    
+}
+
+body {
+    font-family: "Barlow", sans-serif;
+    color: var(--body);
+
+}
+
+
+img {
+    width: 100%;
+}
+
+a {
+    color: var(--dark);
+    transition: all 0.4s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--brand);
+}
+a:active, a:current{
+    color: var(--brand) !important;
+}
+
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.text-brand {
+    color: var(--brand) !important;
+}
+
+/* navbar */
+.top-nav {
+    background-color: var(--brand);
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.top-nav p {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 10px;
+}
+
+.top-nav span,
+.top-nav i {
+    vertical-align: middle;
+}
+
+.navbar {
+    box-shadow: var(--shadow);
+}
+
+.social-icons a {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.social-icons a:hover {
+    background-color: #fff;
+    color: var(--brand);
+}
+
+.navbar .navbar-nav .nav-link {
+    color: var(--dark);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--brand);
+}
+
+.navbar .navbar-nav .nav-link.active {
+    color: var(--brand);
+}
+
+.navbar-brand {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.navbar-brand .dot {
+    color: var(--red);
+}
+
+.btn {
+    padding: 8px 26px;
+}
+
+.btn-brand {
+    border-color: var(--red);
+    background-color: var(--red);
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn-brand:hover {
+    background-color: #d64022;
+    border-color: #d64022;
+    color: #fff;
+}
+
+.intro {margin-bottom: 36px;
+text-align: center;}
+
+
+footer {
+    background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.8)), url(../img/Munimo.jpg), #082032;;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer .footer-top {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+footer .navbar-brand {
+    color: #fff;
+}
+
+footer p {
+    color: #ADB3B9;
+}
+
+footer .social-icons a {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.stdInfo{
+    min-height: 200vh;
+    background-color: var(--brand);
+    max-height: 400vh;
+}
+.introdiv{
+    background: linear-gradient(0deg, rgba(8, 32, 50, 1), rgba(8, 32, 50, 0.4)), url(../img/Munimo.jpg), #082032;;
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+.intro1section{
+    background-color: (0deg, rgb(15, 15, 15, 1), rgba(255, 94, 66, 0.4));
+
+}
+.intro{
+    font-family: 'Satisfy', cursive; font-weight: 400;
+}
+.introcomplete{
+    font-family: 'Grenze Gotisch', cursive; display: none; font-weight: 600;
+}
+.munilogo{
+    display: none; opacity: 0.6;position:absolute;
+    top: 200px; right: 40px; max-width: 300px;
+    max-height: 200px;
+}
+
+span.introspan{display: none;}
+body {
+    background: #f4f4f4;
+  }
+  
+  .banner {
+    background: #a770ef;
+    background: -webkit-linear-gradient(to right, #70bcef, #f3db8b, #fd9b9b);
+    background: linear-gradient(to right, #70a9ef, #8bd7f3, #fdb99b);
+  }
+.addhostelowners, .addhostelsinfo{
+    display: none;
+    max-height: 300vh;
+    max-width: 100%;
+    justify-content: center;
+}
+.addhostelowners form, .addhostelsinfo form{ 
+    width: 90%;
+    margin: 0 auto;
+}
+
+.registerdiv{
+    background-color: #fff;
+    margin-top: -5px !important;
+    padding: 80px 80px !important;
+}
+.reportsummary{
+    display: none;
+}
+.photo-gallery {
+    color:#313437;
+    background-color:#fff;
+  }
+  
+  .photo-gallery p {
+    color:#7d8285;
+  }
+  
+  .photo-gallery h2 {
+    font-weight:bold;
+    margin-bottom:40px;
+    padding-top:40px;
+    color:inherit;
+  }
+  
+  @media (max-width:767px) {
+    .photo-gallery h2 {
+      margin-bottom:25px;
+      padding-top:25px;
+      font-size:24px;
+    }
+  }
+  
+  .photo-gallery .intro {
+    font-size:16px;
+    max-width:500px;
+    margin:0 auto 40px;
+  }
+  
+  .photo-gallery .intro p {
+    margin-bottom:0;
+  }
+  
+  .photo-gallery .photos {
+    padding-bottom:20px;
+  }
+  
+  .photo-gallery .item {
+    padding-bottom:30px;
+  }
+  
+  img .hrslogo{
+    max-width: 150px !important;
+    max-height: 100px !important;
+  }
+  p.text-dark{
+    font-family: 'Satisfy', cursive; font-weight: 100; font-size:large;
+  }
+  p.text-dark ~ div{
+    font-size:large; font-weight: 600;text-decoration:wavy; background-color: #00ace6;
+  }
+  /* .copybanner{
+    background: linear-gradient(0deg,rgb(40, 40, 1),rgb(18, 1, 1));
+  } */
+  .sysimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 700px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    max-height: 150px;
+  }

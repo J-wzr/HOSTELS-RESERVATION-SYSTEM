@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navfooter %}
+
+
+<div class="row h-100vh border-top border-danger px-0 container-fluid">
+    <div class="col-3 shadow shadow-end px-2 shadow-md stdInfo">
+        <div class="text-center">
+            <div class="p-3">
+                <img class = "border-3 p-2 border border-warning rounded-circle" src="{% static 'img/user.png' %}" alt="profile image" style="max-width:150px; max-height:150px">
+            </div>
+            <div class="text-white"><span>User Role</span>: <strong>Hostel Owner</strong></div>
+            <div class="text-warning"><span>Username</span>: <strong>{{user.username}}</strong></div>
+
+        </div>
+        <div class= "mt-2 ps-3 me-2 p-1 bg-info rounded">
+            <h6>Hostel id <button  class=" ms-2 p-2 btn-warning ">21008</button></h6>
+        </div>
+    </div>
+    
+    <div class="col-9 h-100vh container table-responsive pt-2">
+        <h4 class="text-underline text-warning">Bookings</h4>
+        <table class ="table">
+            <thead>
+                <tr>
+                    <td class="table-warning">Student's Name</td>
+                    <td class="table-warning">Contact</td>
+                    <td class="table-warning">Booking Time</td>
+                    <td class="table-warning">Hostel Name</td>
+                    <td class="table-warning">Manage Status</td>
+                <tr>
+            </thead>
+            <p class="text-end">Total Number of Bookings: {{bookings.count}}</p>
+            {% for booking in  bookings%}
+                {% if booking %}
+                
+                <tbody>
+                    <tr>
+                        <td>{{booking.user}}</td>
+                        <td>{{booking.active_contact}}</td>
+                        <td>{{booking.time}}</td>
+                        <td>{{booking.hostel}}</td>
+                        <td><button class="markread btn btn-outline-danger p-1"><strong>Approve Booking</strong><i></i></button></td>
+                    </tr>
+                </tbody>
+                
+                {% else %}
+                <p class= "text-warning">No request yet.</p>
+                {% endif %}
+            {% endfor %}                        
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

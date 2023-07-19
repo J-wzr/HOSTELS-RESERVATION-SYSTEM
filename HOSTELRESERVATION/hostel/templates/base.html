@@ -1,0 +1,159 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Home | HostelReservation</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+    <!-- top nav in header -->
+    <div class="top-nav" id="home">
+        <div class="container-fluid px-4">
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <p> <i class="fa-solid fa-envelope"></i> hostels@muni.ac.ug</p>
+                    <p> <i class="fa-solid fa-phone"></i> (256) 762-511-280</p>
+                </div>
+                <div class="col-auto social-icons">
+                    <a href="https://www.facebook.com/muniuniversitypage/" target="_blank"><i class="fa-brands fa-facebook" aria-label="HRS@Muni-facebook"></i></a>
+                    <a href="https://twitter.com/Muni_University" target="_blank"><i class="fa-brands fa-twitter" aria-label="HRS@Muni-twitter"></i></a>
+                    <a href="https://www.youtube.com/channel/UCbkQmGFbDQACRN2vRATQi6w" target="_blank"><i class="fa-brands fa-square-youtube" aria-label="HRS@Muni-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bottom nav in header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top collapsible">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"><img class="navbar-brand hrslogo" src="../static/img/logotrans.png" style="max-width:auto; max-height:80px; background-color:white padding:0;margin:0"><span class="dot text-danger">.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">OtherLink</a>
+                    </li>
+                </ul>
+                {% comment %} <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-brand ms-lg-3">Login</a> {% endcomment %}
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-brand ms-lg-3">Logout</a>
+                {% else %}
+                    <a href="{% url 'register' %}" class="btn ms-lg-3" style="background: #00ace6;color: #fff">Register</a>
+                    <a href="{% url 'login' %}" class="btn btn-brand ms-lg-3">Login</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </nav>
+
+    {% block navfooter %}{% endblock navfooter %}
+
+    
+    <footer class="mt-3">
+      <div class="footer-top text-center">
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-lg-6 text-center">
+                      <h4 class="navbar-brand">HRS@Muni<span class="dot">.</span></h4>
+                      <p>Some Links</p>
+                      <div class="col-auto social-icons">
+                          <a href="#"><i class='bx bxl-facebook'></i></a>
+                          <a href="#"><i class='bx bxl-twitter'></i></a>
+                          <a href="#"><i class='bx bxl-instagram'></i></a>
+                          <a href="#"><i class='bx bxl-pinterest'></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom text-center">
+          <p class="mb-0">Copyright@2023. All rights Reserved</p>
+      </div>
+  </footer>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+              <div class="modal-body p-0">
+                  <div class="container-fluid">
+                      <div class="row gy-4">
+                          <div class="col-lg-4 col-sm-12 bg-cover"
+                              style="">
+                              <div>
+                                  
+                              </div>
+                          </div>
+                          <div class="col-lg-8">
+                              <form class="p-lg-5 col-12 row g-3">
+                                  <div>
+                                      <h1>Get in touch</h1>
+                                  <p>Fell free to contact us and we will get back to you as soon as possible</p>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <label for="userName" class="form-label">First name</label>
+                                      <input type="text" class="form-control" placeholder="Jon" id="userName"
+                                          aria-describedby="emailHelp">
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <label for="userName" class="form-label">Last name</label>
+                                      <input type="text" class="form-control" placeholder="Doe" id="userName"
+                                          aria-describedby="emailHelp">
+                                  </div>
+                                  <div class="col-12">
+                                      <label for="userName" class="form-label">Email address</label>
+                                      <input type="email" class="form-control" placeholder="Johndoe@example.com" id="userName"
+                                          aria-describedby="emailHelp">
+                                  </div>
+                                  <div class="col-12">
+                                      <label for="exampleInputEmail1" class="form-label">Enter Message</label>
+                                      <textarea name="" placeholder="This is looking great and nice." class="form-control" id=""  rows="4"></textarea>
+                                  </div>
+
+                                  <div class="col-12">
+                                      <button type="submit" class="btn btn-brand">Send Message</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navfooter %}
+                {% if messages %}
+                <div class="alert alert-success alert-dismissible fade show m-0" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+<div class="container-fluid bg-light px-5 pt-4 introdiv border-top border-3 border-warning">
+    <h3 class="intro text-center p-1 m-1 text-white"><span class="introspan">Welcome to;</span></h3>
+    <h3 class="intro text-center text-white ">Hostels around Campus.</h3>
+    <h1 class="introcomplete text-center"><span class="text-warning">Seamless</span> <span style="color:#00ace6">Online</span> <span class="text-warning">Booking</span><span class="text-white">...</span></h1>
+    <img class="d-sm-none d-md-block munilogo" src="{% static 'img/Munilog.jpg' %}">
+</div>
+
+<div class="container-fluid intro1section">
+    <div class="px-lg-5">
+  
+      <div class="row py-5">
+        <div class="col-lg-12 mx-auto">
+          <div class="text-white p-5 shadow-sm rounded banner">
+            <h1 style="font-weight:800;">Only Approved Hostels</h1>
+            <p class="lead">Note: Muni University is Non-Residential.</p>
+            <p class="lead">To cater for our students, with ease you can 
+              {% if user.is_authenticated %}
+              Create an Account and Login,...like you've successfuly done.
+              {% else %}
+              <a href="{% url 'register' %}" class="text-reset"> 
+                Create an Account</a>, And <a href="{% url 'login' %}" class="text-reset">Login to Book a hostel</a>.
+                          {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End -->
+  
+      <div class="row">
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/inside1.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Apex Hostel</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">UGX 400,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/EliteLower/elitelower1.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center"> Elite Lower</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single & Double Rooms</span></p>
+                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">UGX 400,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/inside1.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Laza Hostel</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">UGX 400,000/sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/EliteLower/elitelower2.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">St. Thereza Hostel</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-success px-3 rounded-pill font-weight-normal">UGX 360,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/apex.JPG' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Upper Elite Residence</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-primary px-3 rounded-pill font-weight-normal">UGX 400,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/EliteLower/elitelower2.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Lower Elite Residence</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">UGX 400,000/sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/inside.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Wills Hostel</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-info px-3 rounded-pill font-weight-normal">UGX 360,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/behind.JPG' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Blessings Hostel</h4>
+              <p class="text-center small text-muted mb-0">2 Rooms Available</p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Single Rooms</span></p>
+                <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">UGX 400,000/sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End -->
+  
+        <!-- Gallery item -->
+        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+          <div class="bg-white rounded shadow-sm"><img src="{% static 'img/ApexHostel/inside.jpg' %}" alt="" class="img-fluid card-img-top">
+            <div class="p-4">
+              <h4 class="text-dark text-center">Jehovah Jireh</h4>
+              <p class="text-center small text-muted mb-0">6 Rooms Available</p>
+                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <p class="text-dark small mb-0"><i class="fa fa-picture-o mr-2"></i></p>
+                <div class="badge badge-danger px-3 rounded-pill font-weight-normal">UGX 400,000/Sem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="py-5 text-right"><a href="{% url 'register' %}" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
+    </div>
+  </div>
+
+{% endblock navfooter %}

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block navfooter %}
+
+
+<div class="row h-100vh border-top border-danger px-0 container-fluid">
+    <div class="col-3 shadow shadow-end px-2 shadow-md stdInfo">
+        <div class="text-center">
+            <div class="p-3">
+                <img class = "border-3 p-2 border border-warning rounded-circle" src="{% static 'img/user.png' %}" alt="profile image" style="max-width:150px; max-height:150px">
+            </div>
+            <div class="text-white"><span>User Role</span>: <strong>Dean of Students</strong></div>
+            <div class="text-warning"><span>Name</span>: <strong>{{user.username}}</strong></div>
+            <div class= "p-3 d-grid bg-secondary">
+                <button class="btn btn-block btn-info viewhostelowners">View Hostel Owners</button>
+            </div>
+            <div class= "p-3 d-grid bg-secondary">
+                <button class="btn btn-block btn-info viewhostels">View Hostels'Info</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-9 h-100vh" style="">
+        <div class="d-grid">
+            <button class="btn btn-block btn-secondary addowners mb-4"><span class="fs-5">Add Hostel Owners</span> <i class="fa-solid mx-3 text-white fa-toggle-on"></i></button>
+                <div class="addhostelowners border border-2 border-top-0 p-2 rounded border-secondary">
+                    <form class="p-3 bg-white" method="post">
+                        {% csrf_token %}
+                        {{hostel_owners_form|crispy}}
+                        <div class ="d-grid">
+                            <button type="submit" class="btn-block btn btn-danger">Add Owner <i class="mx-4 fa-solid fa-plus"></i></button>
+                        </div>
+                    </form>
+                </div>
+            <button class="btn btn-block btn-secondary addhostels"><i class="fa-solid mx-3 text-white fa-toggle-on"></i> <span class= "fs-5"> Add Hostels</span> </button> 
+                <div class="addhostelsinfo border border-2 border-top-0 p-2 rounded border-secondary">
+                    <form class="p-3 bg-white" method="post">
+                        {% csrf_token %}
+                        {{hostels_form|crispy}}
+                        <div class ="d-grid">
+                            <button type="submit" class="btn-block btn btn-danger">Add Hostel <i class="mx-4 fa-solid fa-plus"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="container table-responsive pt-2">
+                    <h4 class="text-underline text-warning">Requests from Hostel Owners</h4>
+                    <table class ="table">
+                        <thead>
+                            <tr>
+                                <td class="table-warning">Land[lord/lady]'s Name</td>
+                                <td class="table-warning">Contact</td>
+                                <td class="table-warning">Email</td>
+                                <td class="table-warning">Hostel Name</td>
+                                <td class="table-warning">Status</td>
+                            <tr>
+                        </thead>
+                        <p class="text-end">Total Number of Requests: {{hostel_owners_requests.count}}</p>
+                        {% for request in  hostel_owners_requests %}
+                            {% if request %}
+                            
+                            <tbody>
+                                <tr>
+                                    <td>{{request.Name}}</td>
+                                    <td>{{request.Contact}}</td>
+                                    <td>{{request.Email}}</td>
+                                    <td>{{request.Hostel_Name}}</td>
+                                    <td><button class="markread btn btn-outline-danger p-1"><strong>Mark as Read</strong><i></i></button></td>
+                                </tr>
+                            </tbody>
+                            
+                            {% else %}
+                            <p class= "text-warning">No request yet.</p>
+                            {% endif %}
+                        {% endfor %}                        
+                    </table>
+                </div>
+                
+                <div class="container reportsummarydean table-responsive mt-0 pt-3">
+                    <h4 class="text-warning">Approved Hostels List</h4>
+                      <table class="table table-stripped  table-hover">
+                        <thead>
+                          <tr>
+                            <td class="table-warning">S/N</td>
+                            <td class="table-warning">Hostel Name</td>
+                            <td class="table-warning">Hostel Status</td>
+                            <td class="table-warning">Fees Per Semester</td>
+                            <td class="table-warning">Location</td>
+                            <td class="table-warning">Number of Rooms</td>
+                            <td class="table-warning">Water Status(National, Tanks)</td>
+                            <td class="table-warning">Power Status</td>
+                            <td class="table-warning">Security status</td>
+                            <td class="table-warning">SOP's status</td>
+                            <td class="table-warning">Contact person</td>
+                            <td class="table-warning">Contacts</td>
+                            <td class="table-danger">Communicate Status</td>
+                          </tr>
+                        </thead>
+                        {% for hostel in  hostels %}
+                              {% if hostel %}
+                              <tbody>
+                                  <tr>
+                                      <td>{{forloop.counter}}</td>
+                                      <td>{{hostel.name}}</td>
+                                      <td>{{hostel.status}}</td>
+                                      <td>{{hostel.lease}}</td>
+                                      <td>{{hostel.Location}}</td>
+                                      <td>{{hostel.total_rooms}}</td>
+                                      <td>{{hostel.water_status}}</td>
+                                      <td>{{hostel.power_status}}</td>
+                                      <td>{{hostel.security_status}}</td>
+                                      <td>{{hostel.sop_status}}</td>
+                                      <td>{{hostel.hostel_owner}}</td>
+                                      <td>{{hostel.hostel_owner_contact}}</td>
+                                      <td><button type="submit">Send Approval Status</button>
+                                  </tr>
+                              </tbody>
+                              
+                              {% else %}
+                              <p class= "text-warning">No Approved Hostel yet.</p>
+                              {% endif %}
+                          {% endfor %}
+                      </table>
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

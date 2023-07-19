@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navfooter %}
+
+
+<div class="row h-100vh border-top border-danger px-0 container-fluid">
+    <div class="col-3 shadow shadow-end px-2 shadow-md stdInfo">
+        <div class="text-center">
+            <div class="p-3">
+                <img class = "border-3 p-2 border border-warning rounded-circle" src="{% static 'img/user.png' %}" alt="profile image" style="max-width:150px; max-height:150px">
+            </div>
+            <div class="text-white"><span>Username</span>: <strong>{{user.username}}</strong></div>
+            <div class="text-warning"><span>Student id</span>: <strong>Student's No</strong></div>
+        </div>
+        <div class= "p-3 bg-info">
+            <h6>Booking Status:</h6>
+            {% if messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+    <div class="col-9 h-100vh" style="">
+        {% if messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+        <div class="d-grid">
+            <button type="button" class="viewreport btn btn-secondary btn-block"> View a Summary of Approved Hostels From the dean.</button>
+        </div>
+        <div class="container reportsummary table-responsive mt-0 pt-3">
+          <p>Total Number of Approved hostels: {{hostels.count}}</p>
+            <table class="table table-stripped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th class="table-warning">S/N</th>
+                  <th class="table-warning">Hostel Name</th>
+                  <th class="table-warning">Hostel Status</th>
+                  <th class="table-warning">Fees Per Semester</th>
+                  <th class="table-warning">Location</th>
+                  <th class="table-warning">Number of Rooms</th>
+                  <th class="table-warning">Water Status(National, Tanks)</th>
+                  <th class="table-warning">Power Status</th>
+                  <th class="table-warning">Security status</th>
+                  <th class="table-warning">SOP's status</th>
+                  <th class="table-warning">Contact person</th>
+                  <th class="table-warning">Contacts</th>
+                </tr>
+              </thead>
+              {% for hostel in  hostels %}
+                    {% if hostel %}
+                    <tbody>
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{hostel.name}}</td>
+                            <td>{{hostel.status}}</td>
+                            <td>{{hostel.lease}}</td>
+                            <td>{{hostel.Location}}</td>
+                            <td>{{hostel.total_rooms}}</td>
+                            <td>{{hostel.water_status}}</td>
+                            <td>{{hostel.power_status}}</td>
+                            <td>{{hostel.security_status}}</td>
+                            <td>{{hostel.sop_status}}</td>
+                            <td>{{hostel.hostel_owner}}</td>
+                            <td>{{hostel.hostel_owner_contact}}</td>
+                        </tr>
+                    </tbody>
+                    
+                    {% else %}
+                    <p class= "text-warning">No Approved Hostel yet.</p>
+                    {% endif %}
+                {% endfor %}
+            </table>
+          </div>
+          <div class="photo-gallery">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">Seamless Online Booking</h2>
+                    <h4>Kindly select a hostel of your choice and press book.</h4>
+                </div>
+                <div class="row photos">
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/behind.JPG" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/behind.JPG"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/Behind.JPG" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/Behind.JPG"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/inside.jpg" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/inside.jpg"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/inside1.jpg" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/inside1.jpg"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/room.JPG" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/room.JPG"></a></div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="../static/img/ApexHostel/DSC004s.JPG" data-lightbox="photos"><img class="img-fluid" src="../static/img/ApexHostel/DSC004s.JPG"></a></div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{bookingform}}
+                        <button type="submit">Press Booking for this Hostel</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+{% endblock %}

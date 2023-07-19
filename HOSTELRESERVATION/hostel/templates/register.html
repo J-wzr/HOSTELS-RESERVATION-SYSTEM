@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block navfooter %}
+
+<div class="container registerdiv border border-2 rounded shadow py-3 mt-3">
+    <h3 class="text-danger">Register As?</h3>
+    <br>
+    <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active show"  href="{% url 'register' %}">Student</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="{% url 'hostel_owner_registration' %}">Hostel Owner</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div id="student" class="active show container tab-pane fade"><br>
+    <h5>Dear Student, You're highly welcome to Muni University.</h5>
+    <p>Kindly fill in your details as required by the system to proceed.</p>
+    <div>
+      <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn" style="background: #00ace6;color: #fff">Create Account</button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+  </div>
+{% endblock navfooter %}
